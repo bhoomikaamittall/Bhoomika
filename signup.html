@@ -20,31 +20,51 @@
     </nav>
            
           </header>
-  <div class="signup-container">
-    <h1>Sign Up</h1>
-    <form>
-      <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" required>
-      </div>
-      <div class="form-group">
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last-name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-    </form>
-
-      <a href="empinfo.html">
-        <button class="submit"> Sign Up</button>
-     </a>
-    </div>
+          <div class="signup-container">
+            <h1>Sign Up</h1>
+            <form id="signupForm" action="empinfo.html" onsubmit="validateForm(event)">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+              <button type="submit" id="signup">Sign Up</button>
+            </form>
+          </div>
+          
+          <script>
+          function validateForm(event) {
+            event.preventDefault();
+          
+            var firstNameInput = document.getElementById("first-name");
+            var lastNameInput = document.getElementById("last-name");
+            var emailInput = document.getElementById("email");
+            var passwordInput = document.getElementById("password");
+          
+            var firstNameValue = firstNameInput.value.trim();
+            var lastNameValue = lastNameInput.value.trim();
+            var emailValue = emailInput.value.trim();
+            var passwordValue = passwordInput.value.trim();
+          
+            if (firstNameValue === "" || lastNameValue === "" || emailValue === "" || passwordValue === "") {
+              alert("Please fill in all fields.");
+              return;
+            }
+            document.getElementById("signupForm").submit();
+          }
+          </script>
+          
     <footer>
       <center><b>CONTACT US ON:</b></center>
       <br>
@@ -52,5 +72,6 @@
       <p>Instagram -cginfinityy</p>
       <p>Facebook  -CGI</p>
   </footer>
+  
 </body>
 </html>
